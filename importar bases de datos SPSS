@@ -1,0 +1,27 @@
+#primera forma
+#dentro del ambiente darle a import dataset.
+
+#segunda forma 
+#asociado al paquete haven en SPSS y a readxl en EXcel
+
+#En SPSS
+install.packages("haven")
+library(haven)
+#este paquete además importa bases de Stata y SAS, pero este ejemplo es de SPSS
+dfspss <- read_sav("C:/Users/user/Desktop/Artículo concimientos/dfitems.sav")
+
+#En Excel
+install.packages("readxl")
+library(readxl)
+dfexcel <- read_excel("C:/Users/user/Desktop/Artículo concimientos/ggballon.xlsx")
+
+#tercera
+#anclando de raiz a toda tu sintaxis (la mejor).
+install.packages("foreign")
+library(foreign)
+#este paquete permite importar bases de datos de:
+#'Minitab', 'S', 'SAS', 'SPSS', 'Stata', 'Systat', 'Weka', 'dBase', y más
+setwd('C:/Users/user/Desktop/Bucaramanga')
+congreso<-read.spss("congreso.sav", to.data.frame=TRUE)
+#todo se almacena en la raiz que le hemos dicho. Ejemplo:
+tiff("SAS.tif",width=1480,height=1748,units="px",res=300)
